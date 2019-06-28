@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{#    <h1 style="background-color: aquamarine">hello world!</h1>#}
+    <h1 style="background-color: antiquewhite">用户输入</h1>
+{#    <form method="post">#}
+{#        <input type="text" name="username"/>#}
+{#        <input type="password" name="password"/>#}
+{#        <input type="submit" value="提交"/>#}
+{#    </form>#}
+
+{#    不能填写action 以及enctype要为这个#}
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="upload_file">
+        <input type="submit" value="提交">
+    </form>
+    <script src="/static/js/jquery-3.4.1.min.js"></script>
+    <ul>
+    {% for item in keys %}
+        <li>{{ item }}</li>
+    {% endfor %}
+    </ul>
+
+    <a href="/static/out.xlsx" download="output.xlsx">点击下载</a>
+
+</body>
+</html>
