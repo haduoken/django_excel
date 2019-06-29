@@ -51,11 +51,12 @@ def index(request):
                 with default_storage.open(write_url, 'wb') as f:
                     for chunk in upload.chunks():
                         f.write(chunk)
+                    f.flush()
                     upload_file_names.append(file_name)
                     upload_files.append(write_url)
-                    for sheet in get_visible_names(write_url):
-                        store_keys = store_keys+get_keys(write_url,sheet)
-                        store_keys = list(set(store_keys))
+                for sheet in get_visible_names(write_url):
+                    store_keys = store_keys+get_keys(write_url,sheet)
+                    store_keys = list(set(store_keys))
                     # if session_keys:
                     #     session_keys.extend(get_keys(write_url, sheet))
                     # request.session['store_keys']=store_keys
