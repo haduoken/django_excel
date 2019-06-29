@@ -1,6 +1,5 @@
 from django.shortcuts import render
-import cv2
-from excel_operate import *
+from .excel_operate import *
 from django.core.files.storage import default_storage
 
 
