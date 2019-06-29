@@ -40,7 +40,7 @@
     <hr>
     <h4>   * 已选择属性(注意顺序)</h4>
     {% for item in use_keys %}
-        <p>item</p>
+        <p> {{ item }}  </p>
     {% endfor %}
     <hr>
 <h2 style="background-color: antiquewhite">Step 3: 确认并生成下载文件</h2>
@@ -52,7 +52,11 @@
 
     <hr>
 
-<h2 style="background-color: antiquewhite">Step 4: 清空本次操作 (下载完了记得点一下.....)</h2>
+<h2 style="background-color: antiquewhite">Step 4: 先下载再清空本次操作 (下载完了记得点一下.....)</h2>
+    {% if done %}
+        <a href="/static/output.xlsx" download="output.xlsx">点击下载</a>
+    {% endif %}
+
     <form method="post">
     <p>
         <input type="submit" name="clear" value="清除文件"/>
@@ -60,9 +64,6 @@
     </form>
     <script src="/static/js/jquery-3.4.1.min.js"></script>
 
-    {% if done %}
-    <a href="/static/output.xlsx" download="output.xlsx">点击下载</a>
-    {% endif %}
 
 </body>
 </html>
